@@ -1,0 +1,36 @@
+{
+  "name": "@rowanmanning/get-all-messages-in-a-slack-channel",
+  "version": "0.0.0",
+  "description": "Get all messages in a public Slack channel",
+  "keywords": [
+    "slack"
+  ],
+  "author": "Rowan Manning (https://rowanmanning.com/)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rowanmanning/get-all-messages-in-a-slack-channel.git"
+  },
+  "homepage": "https://github.com/rowanmanning/get-all-messages-in-a-slack-channel",
+  "bugs": "https://github.com/rowanmanning/get-all-messages-in-a-slack-channel/issues",
+  "license": "MIT",
+  "engines": {
+    "node": ">=10"
+  },
+  "peerDependencies": {
+    "@slack/web-api": "^5.0.0"
+  },
+  "devDependencies": {
+    "@rowanmanning/eslint-config": "^2.0.0",
+    "@rowanmanning/make": "^1.2.0",
+    "eslint": "^5.15.3",
+    "mocha": "^6.2.0",
+    "mockery": "^2.1.0",
+    "nyc": "^14.1.1",
+    "proclaim": "^3.6.0",
+    "sinon": "^7.5.0"
+  },
+  "main": "./lib/index.js",
+  "scripts": {
+    "test": "make ci"
+  }
+}
