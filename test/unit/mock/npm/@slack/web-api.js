@@ -6,11 +6,11 @@ class WebClient {}
 
 WebClient.prototype.constructor = sinon.stub();
 
-const channels = WebClient.prototype.channels = {
+const conversations = WebClient.prototype.conversations = {
 	history: sinon.stub()
 };
 
-channels.history.onCall(0).resolves({
+conversations.history.onCall(0).resolves({
 	messages: [
 		{
 			ts: 'mock-timestamp-1',
@@ -24,7 +24,7 @@ channels.history.onCall(0).resolves({
 	has_more: true
 });
 
-channels.history.onCall(1).resolves({
+conversations.history.onCall(1).resolves({
 	messages: [
 		{
 			ts: 'mock-timestamp-3',
@@ -38,7 +38,7 @@ channels.history.onCall(1).resolves({
 	has_more: true
 });
 
-channels.history.onCall(2).resolves({
+conversations.history.onCall(2).resolves({
 	messages: [
 		{
 			ts: 'mock-timestamp-5',
@@ -48,6 +48,6 @@ channels.history.onCall(2).resolves({
 	has_more: false
 });
 
-channels.history.onCall(3).rejects(new Error('Too many calls, no more messages'));
+conversations.history.onCall(3).rejects(new Error('Too many calls, no more messages'));
 
 module.exports = {WebClient};

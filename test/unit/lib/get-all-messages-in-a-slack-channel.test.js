@@ -26,8 +26,8 @@ describe('lib/get-all-messages-in-a-slack-channel', () => {
 			resolvedValue = await getAllMessagesInASlackChannel(slackWebApiClient, 'mock-channel-id');
 		});
 
-		it('makes calls to the Slack channels.history API endpoint until there are no more messages', () => {
-			assert.calledThrice(slackWebApiClient.channels.history);
+		it('makes calls to the Slack conversations.history API endpoint until there are no more messages', () => {
+			assert.calledThrice(slackWebApiClient.conversations.history);
 		});
 
 		it('resolves with an array containing all of the Slack messages in chronological order', () => {
