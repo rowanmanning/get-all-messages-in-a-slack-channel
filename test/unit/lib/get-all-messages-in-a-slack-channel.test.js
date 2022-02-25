@@ -1,15 +1,19 @@
 'use strict';
 
-const assert = require('proclaim');
-const mockery = require('mockery');
+const {assert} = require('chai');
+const td = require('testdouble');
 
 describe('lib/get-all-messages-in-a-slack-channel', () => {
 	let getAllMessagesInASlackChannel;
 	let webApi;
+	let WebClient;
 
 	beforeEach(() => {
-		webApi = require('../mock/npm/@slack/web-api.js');
-		mockery.registerMock('@slack/web-api', webApi);
+		WebClient = td.constructor(require('@slack/web-api').WebClient);
+		WebClient.prototype.conversations = {
+			history: td.func()
+		};
+		webApi = td.replace('@slack/web-api', {WebClient});
 		getAllMessagesInASlackChannel = require('../../../lib/get-all-messages-in-a-slack-channel');
 	});
 
@@ -22,17 +26,56 @@ describe('lib/get-all-messages-in-a-slack-channel', () => {
 		let slackWebApiClient;
 
 		beforeEach(async () => {
+			td.when(WebClient.prototype.conversations.history(td.matchers.isA(Object))).thenResolve(
+				{
+					messages: [
+						{
+							ts: 'mock-timestamp-1',
+							text: 'mock message 1'
+						},
+						{
+							ts: 'mock-timestamp-2',
+							text: 'mock message 2'
+						}
+					],
+					has_more: true
+				},
+				{
+					messages: [
+						{
+							ts: 'mock-timestamp-3',
+							text: 'mock message 3'
+						},
+						{
+							ts: 'mock-timestamp-4',
+							text: 'mock message 4'
+						}
+					],
+					has_more: true
+				},
+				{
+					messages: [
+						{
+							ts: 'mock-timestamp-5',
+							text: 'mock message 5'
+						}
+					],
+					has_more: false
+				}
+			);
+
+			// WebClient.prototype.conversations.history.onCall(3).rejects(new Error('Too many calls, no more messages'));
 			slackWebApiClient = new webApi.WebClient();
 			resolvedValue = await getAllMessagesInASlackChannel(slackWebApiClient, 'mock-channel-id');
 		});
 
 		it('makes calls to the Slack conversations.history API endpoint until there are no more messages', () => {
-			assert.calledThrice(slackWebApiClient.conversations.history);
+			td.verify(slackWebApiClient.conversations.history(td.matchers.isA(Object)), {times: 3});
 		});
 
 		it('resolves with an array containing all of the Slack messages in chronological order', () => {
 			assert.isArray(resolvedValue);
-			assert.lengthEquals(resolvedValue, 5);
+			assert.lengthOf(resolvedValue, 5);
 			assert.deepEqual(resolvedValue, [
 				{
 					ts: 'mock-timestamp-5',
@@ -69,7 +112,7 @@ describe('lib/get-all-messages-in-a-slack-channel', () => {
 			});
 
 			it('rejects with a descriptive `TypeError`', () => {
-				assert.isInstanceOf(rejectedError, TypeError);
+				assert.instanceOf(rejectedError, TypeError);
 				assert.strictEqual(rejectedError.message, '`slackWebApiClient` must be an instance of Slack `WebClient`');
 			});
 
@@ -87,7 +130,7 @@ describe('lib/get-all-messages-in-a-slack-channel', () => {
 			});
 
 			it('rejects with a descriptive `TypeError`', () => {
-				assert.isInstanceOf(rejectedError, TypeError);
+				assert.instanceOf(rejectedError, TypeError);
 				assert.strictEqual(rejectedError.message, '`slackChannelId` must be slack channel ID as a string');
 			});
 
@@ -105,7 +148,7 @@ describe('lib/get-all-messages-in-a-slack-channel', () => {
 			});
 
 			it('rejects with a descriptive `TypeError`', () => {
-				assert.isInstanceOf(rejectedError, TypeError);
+				assert.instanceOf(rejectedError, TypeError);
 				assert.strictEqual(rejectedError.message, '`slackChannelId` must be slack channel ID as a string');
 			});
 
