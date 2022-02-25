@@ -9,7 +9,7 @@ describe('lib/get-all-messages-in-a-slack-channel', () => {
 	let WebClient;
 
 	beforeEach(() => {
-		WebClient = td.constructor(require('@slack/web-api').WebClient);
+		WebClient = td.constructor();
 		WebClient.prototype.conversations = {
 			history: td.func()
 		};
