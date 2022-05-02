@@ -16,7 +16,7 @@ Get all messages in a public Slack channel.
 
 This library requires the following to run:
 
-  * [Node.js](https://nodejs.org/) 12+
+  * [Node.js](https://nodejs.org/) 14+
 
 
 ## Usage
