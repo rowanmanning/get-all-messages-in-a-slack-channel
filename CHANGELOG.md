@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.1.1](https://github.com/rowanmanning/get-all-messages-in-a-slack-channel/compare/v3.1.0...v3.1.1) (2022-06-11)
+
+
+### Bug Fixes
+
+* correct the Slack types used ([8267205](https://github.com/rowanmanning/get-all-messages-in-a-slack-channel/commit/82672055ef928f57665e1587a3ff6efba2bd0f48))
+
 ## [3.1.0](https://github.com/rowanmanning/get-all-messages-in-a-slack-channel/compare/v3.0.1...v3.1.0) (2022-06-11)
 
 
