@@ -1,5 +1,21 @@
 # Changelog
 
+## [3.1.0](https://github.com/rowanmanning/get-all-messages-in-a-slack-channel/compare/v3.0.1...v3.1.0) (2022-06-11)
+
+
+### Features
+
+* ensure typescript types are always valid ([263c72f](https://github.com/rowanmanning/get-all-messages-in-a-slack-channel/commit/263c72f92c0034ed615028c3abe413870dd751b2))
+
+
+### Miscellaneous
+
+* bump @commitlint/cli from 17.0.1 to 17.0.2 ([01f7b61](https://github.com/rowanmanning/get-all-messages-in-a-slack-channel/commit/01f7b611abdb9c387082928c86c46cc76abe5b60))
+* bump @commitlint/config-conventional from 17.0.0 to 17.0.2 ([887db37](https://github.com/rowanmanning/get-all-messages-in-a-slack-channel/commit/887db377fa50f432db01462b331ef3e83159031c))
+* bump @rowanmanning/eslint-config from 3.5.0 to 4.0.2 ([06b7e00](https://github.com/rowanmanning/get-all-messages-in-a-slack-channel/commit/06b7e002d4a0dd40226f84b573fc96a09a0964be))
+* bump eslint from 8.16.0 to 8.17.0 ([532bfee](https://github.com/rowanmanning/get-all-messages-in-a-slack-channel/commit/532bfeeadfb8d8eb7e643efb558e4211a2a48dc5))
+* fix eslint issues ([c11618c](https://github.com/rowanmanning/get-all-messages-in-a-slack-channel/commit/c11618c990bb5c079010ed6ece578e7cae008f0c))
+
 ### [3.0.1](https://github.com/rowanmanning/get-all-messages-in-a-slack-channel/compare/v3.0.0...v3.0.1) (2022-05-25)
 
 
