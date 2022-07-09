@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.1.2](https://github.com/rowanmanning/get-all-messages-in-a-slack-channel/compare/v3.1.1...v3.1.2) (2022-07-09)
+
+
+### Bug Fixes
+
+* hide the misc changelog section ([e28462e](https://github.com/rowanmanning/get-all-messages-in-a-slack-channel/commit/e28462e0dddfd78801d3e460cdccbbd18e8afdb8))
+
 ## [3.1.1](https://github.com/rowanmanning/get-all-messages-in-a-slack-channel/compare/v3.1.0...v3.1.1) (2022-06-11)
 
 
