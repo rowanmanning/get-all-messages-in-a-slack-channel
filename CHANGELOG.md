@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.1.3](https://github.com/rowanmanning/get-all-messages-in-a-slack-channel/compare/v3.1.2...v3.1.3) (2022-11-14)
+
+
+### Bug Fixes
+
+* improve TypeScript compatibility ([e1229c9](https://github.com/rowanmanning/get-all-messages-in-a-slack-channel/commit/e1229c994a897c70f19ef64dcef11e564d6f6bba))
+
 ## [3.1.2](https://github.com/rowanmanning/get-all-messages-in-a-slack-channel/compare/v3.1.1...v3.1.2) (2022-07-09)
 
 
