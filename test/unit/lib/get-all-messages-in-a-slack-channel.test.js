@@ -156,4 +156,10 @@ describe('lib/get-all-messages-in-a-slack-channel', () => {
 
 	});
 
+	describe('.default', () => {
+		it('aliases the module exports', () => {
+			assert.strictEqual(getAllMessagesInASlackChannel, getAllMessagesInASlackChannel.default);
+		});
+	});
+
 });
