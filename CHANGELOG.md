@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.1.4](https://github.com/rowanmanning/get-all-messages-in-a-slack-channel/compare/v3.1.3...v3.1.4) (2023-01-07)
+
+
+### Bug Fixes
+
+* bump json5 from 2.2.1 to 2.2.3 ([da9625c](https://github.com/rowanmanning/get-all-messages-in-a-slack-channel/commit/da9625cacc5fdf468792db4adb7b01d297a85401))
+
 ## [3.1.3](https://github.com/rowanmanning/get-all-messages-in-a-slack-channel/compare/v3.1.2...v3.1.3) (2022-11-14)
 
 
