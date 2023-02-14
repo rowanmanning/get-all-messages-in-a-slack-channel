@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.1.5](https://github.com/rowanmanning/get-all-messages-in-a-slack-channel/compare/v3.1.4...v3.1.5) (2023-02-14)
+
+
+### Bug Fixes
+
+* support npm v9 ([9a274dc](https://github.com/rowanmanning/get-all-messages-in-a-slack-channel/commit/9a274dc0e948226065ca7ba6a916e34329f47198))
+
 ## [3.1.4](https://github.com/rowanmanning/get-all-messages-in-a-slack-channel/compare/v3.1.3...v3.1.4) (2023-01-07)
 
 
