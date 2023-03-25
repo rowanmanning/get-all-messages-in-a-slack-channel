@@ -1,5 +1,18 @@
 # Changelog
 
+## [4.0.0](https://github.com/rowanmanning/get-all-messages-in-a-slack-channel/compare/v3.1.5...v4.0.0) (2023-03-25)
+
+
+### ⚠ BREAKING CHANGES
+
+* drop official support for npm v7
+* drop support for Node.js 14
+
+### Miscellaneous
+
+* drop official support for npm v7 ([388aaf5](https://github.com/rowanmanning/get-all-messages-in-a-slack-channel/commit/388aaf52eebeb7152fe6dbf90a1087611e4997e2))
+* drop support for Node.js 14 ([8af77ee](https://github.com/rowanmanning/get-all-messages-in-a-slack-channel/commit/8af77eee95cea6eadc766f3e27c17d5cebc4010c))
+
 ## [3.1.5](https://github.com/rowanmanning/get-all-messages-in-a-slack-channel/compare/v3.1.4...v3.1.5) (2023-02-14)
 
 
