@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.0.1](https://github.com/rowanmanning/get-all-messages-in-a-slack-channel/compare/v4.0.0...v4.0.1) (2023-04-18)
+
+
+### Bug Fixes
+
+* add support for Node.js 20 ([831ae70](https://github.com/rowanmanning/get-all-messages-in-a-slack-channel/commit/831ae707cc220b463204fd19dcc4b5b3829a74d0))
+
 ## [4.0.0](https://github.com/rowanmanning/get-all-messages-in-a-slack-channel/compare/v3.1.5...v4.0.0) (2023-03-25)
 
 
