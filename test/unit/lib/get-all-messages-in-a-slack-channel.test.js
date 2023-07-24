@@ -1,6 +1,6 @@
 'use strict';
 
-const {assert} = require('chai');
+const assert = require('node:assert');
 const td = require('testdouble');
 
 describe('lib/get-all-messages-in-a-slack-channel', () => {
@@ -18,7 +18,7 @@ describe('lib/get-all-messages-in-a-slack-channel', () => {
 	});
 
 	it('exports a function', () => {
-		assert.isFunction(getAllMessagesInASlackChannel);
+		assert.strictEqual(typeof getAllMessagesInASlackChannel, 'function');
 	});
 
 	describe('getAllMessagesInASlackChannel(slackWebApiClient, slackChannelId)', () => {
@@ -74,9 +74,9 @@ describe('lib/get-all-messages-in-a-slack-channel', () => {
 		});
 
 		it('resolves with an array containing all of the Slack messages in chronological order', () => {
-			assert.isArray(resolvedValue);
-			assert.lengthOf(resolvedValue, 5);
-			assert.deepEqual(resolvedValue, [
+			assert.ok(Array.isArray(resolvedValue));
+			assert.strictEqual(resolvedValue.length, 5);
+			assert.deepStrictEqual(resolvedValue, [
 				{
 					ts: 'mock-timestamp-5',
 					text: 'mock message 5'
@@ -112,7 +112,7 @@ describe('lib/get-all-messages-in-a-slack-channel', () => {
 			});
 
 			it('rejects with a descriptive `TypeError`', () => {
-				assert.instanceOf(rejectedError, TypeError);
+				assert.ok(rejectedError instanceof TypeError);
 				assert.strictEqual(rejectedError.message, '`slackWebApiClient` must be an instance of Slack `WebClient`');
 			});
 
@@ -130,7 +130,7 @@ describe('lib/get-all-messages-in-a-slack-channel', () => {
 			});
 
 			it('rejects with a descriptive `TypeError`', () => {
-				assert.instanceOf(rejectedError, TypeError);
+				assert.ok(rejectedError instanceof TypeError);
 				assert.strictEqual(rejectedError.message, '`slackChannelId` must be slack channel ID as a string');
 			});
 
@@ -148,7 +148,7 @@ describe('lib/get-all-messages-in-a-slack-channel', () => {
 			});
 
 			it('rejects with a descriptive `TypeError`', () => {
-				assert.instanceOf(rejectedError, TypeError);
+				assert.ok(rejectedError instanceof TypeError);
 				assert.strictEqual(rejectedError.message, '`slackChannelId` must be slack channel ID as a string');
 			});
 
