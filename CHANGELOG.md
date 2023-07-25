@@ -1,5 +1,43 @@
 # Changelog
 
+## 4.0.2 (2023-07-25)
+
+
+### ⚠ BREAKING CHANGES
+
+* drop official support for npm v7
+* drop support for Node.js 14
+* drop support for Node.js versions below 14
+* mocha no longer supports Node.js v12
+
+### Features
+
+* ensure typescript types are always valid ([263c72f](https://github.com/rowanmanning/get-all-messages-in-a-slack-channel/commit/263c72f92c0034ed615028c3abe413870dd751b2))
+
+
+### Bug Fixes
+
+* add support for Node.js 20 ([831ae70](https://github.com/rowanmanning/get-all-messages-in-a-slack-channel/commit/831ae707cc220b463204fd19dcc4b5b3829a74d0))
+* bump json5 from 2.2.1 to 2.2.3 ([da9625c](https://github.com/rowanmanning/get-all-messages-in-a-slack-channel/commit/da9625cacc5fdf468792db4adb7b01d297a85401))
+* correct the Slack types used ([8267205](https://github.com/rowanmanning/get-all-messages-in-a-slack-channel/commit/82672055ef928f57665e1587a3ff6efba2bd0f48))
+* hide the misc changelog section ([e28462e](https://github.com/rowanmanning/get-all-messages-in-a-slack-channel/commit/e28462e0dddfd78801d3e460cdccbbd18e8afdb8))
+* improve TypeScript compatibility ([e1229c9](https://github.com/rowanmanning/get-all-messages-in-a-slack-channel/commit/e1229c994a897c70f19ef64dcef11e564d6f6bba))
+* sort out broken releases ([28a7878](https://github.com/rowanmanning/get-all-messages-in-a-slack-channel/commit/28a787816d04675f323ed7c5e2f32b98b6f47b0b))
+* support npm v9 ([9a274dc](https://github.com/rowanmanning/get-all-messages-in-a-slack-channel/commit/9a274dc0e948226065ca7ba6a916e34329f47198))
+
+
+### Documentation Changes
+
+* manually define changelog sections ([3347556](https://github.com/rowanmanning/get-all-messages-in-a-slack-channel/commit/3347556af75328fe11370244a79b463bfb735a51))
+
+
+### Miscellaneous
+
+* bump mocha from 9.2.2 to 10.0.0 ([6e430f2](https://github.com/rowanmanning/get-all-messages-in-a-slack-channel/commit/6e430f20c89a02291e2e4ca08e5379ff7c1bc8d4))
+* drop official support for npm v7 ([388aaf5](https://github.com/rowanmanning/get-all-messages-in-a-slack-channel/commit/388aaf52eebeb7152fe6dbf90a1087611e4997e2))
+* drop support for Node.js 14 ([8af77ee](https://github.com/rowanmanning/get-all-messages-in-a-slack-channel/commit/8af77eee95cea6eadc766f3e27c17d5cebc4010c))
+* drop support for Node.js versions below 14 ([b2cf944](https://github.com/rowanmanning/get-all-messages-in-a-slack-channel/commit/b2cf944cd7d1a00b2d418d4bbe2920425a92ff12))
+
 ## [4.0.1](https://github.com/rowanmanning/get-all-messages-in-a-slack-channel/compare/v4.0.0...v4.0.1) (2023-04-18)
 
 
