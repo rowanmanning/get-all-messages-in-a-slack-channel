@@ -1,0 +1,14 @@
+{
+	"bootstrap-sha": "1929adc6b3b16325727a20ee10ab859c834aaf02",
+	"prerelease": true,
+	"bump-minor-pre-major": true,
+	"bump-patch-for-minor-pre-major": true,
+	"plugins": [
+		"node-workspace"
+	],
+	"packages": {
+		".": {
+			"include-component-in-tag": false
+		}
+	}
+}
