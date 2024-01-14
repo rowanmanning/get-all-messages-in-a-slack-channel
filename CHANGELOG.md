@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.0.1](https://github.com/rowanmanning/get-all-messages-in-a-slack-channel/compare/v5.0.0...v5.0.1) (2024-01-14)
+
+
+### Bug Fixes
+
+* bump follow-redirects from 1.14.9 to 1.15.4 ([5a161a3](https://github.com/rowanmanning/get-all-messages-in-a-slack-channel/commit/5a161a36876617e1431dc4558895e0b975f4cdea))
+
 ## [5.0.0](https://github.com/rowanmanning/get-all-messages-in-a-slack-channel/compare/v4.0.2...v5.0.0) (2023-09-11)
 
 
