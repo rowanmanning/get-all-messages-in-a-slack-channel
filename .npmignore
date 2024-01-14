@@ -5,9 +5,7 @@
 .github
 .husky
 .nyc_output
-.release-please-manifest.json
 CHANGELOG.md
 coverage
 docs
-release-please-config.json
 test
