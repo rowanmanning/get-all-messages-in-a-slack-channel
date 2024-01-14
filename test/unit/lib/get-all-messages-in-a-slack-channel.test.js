@@ -71,6 +71,20 @@ describe('lib/get-all-messages-in-a-slack-channel', () => {
 
 		it('makes calls to the Slack conversations.history API endpoint until there are no more messages', () => {
 			td.verify(slackWebApiClient.conversations.history(td.matchers.isA(Object)), {times: 3});
+			td.verify(slackWebApiClient.conversations.history({
+				channel: 'mock-channel-id',
+				count: 100
+			}), {times: 1});
+			td.verify(slackWebApiClient.conversations.history({
+				channel: 'mock-channel-id',
+				count: 100,
+				latest: 'mock-timestamp-2'
+			}), {times: 1});
+			td.verify(slackWebApiClient.conversations.history({
+				channel: 'mock-channel-id',
+				count: 100,
+				latest: 'mock-timestamp-4'
+			}), {times: 1});
 		});
 
 		it('resolves with an array containing all of the Slack messages in chronological order', () => {
