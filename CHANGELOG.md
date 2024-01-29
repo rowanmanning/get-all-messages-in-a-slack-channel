@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.1.0](https://github.com/rowanmanning/get-all-messages-in-a-slack-channel/compare/v5.0.1...v5.1.0) (2024-01-29)
+
+
+### Features
+
+* add official support for npm 10 ([028e81d](https://github.com/rowanmanning/get-all-messages-in-a-slack-channel/commit/028e81d943327db3b3a300c51c170bcc9d663544))
+
 ## [5.0.1](https://github.com/rowanmanning/get-all-messages-in-a-slack-channel/compare/v5.0.0...v5.0.1) (2024-01-14)
 
 
