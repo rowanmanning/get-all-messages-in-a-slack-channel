@@ -13,7 +13,7 @@ describe('lib/get-all-messages-in-a-slack-channel', () => {
 		WebClient.prototype.conversations = {
 			history: td.func()
 		};
-		webApi = td.replace('@slack/web-api', {WebClient});
+		webApi = td.replace('@slack/web-api', { WebClient });
 		getAllMessagesInASlackChannel = require('../../../lib/get-all-messages-in-a-slack-channel');
 	});
 
@@ -66,25 +66,39 @@ describe('lib/get-all-messages-in-a-slack-channel', () => {
 
 			// WebClient.prototype.conversations.history.onCall(3).rejects(new Error('Too many calls, no more messages'));
 			slackWebApiClient = new webApi.WebClient();
-			resolvedValue = await getAllMessagesInASlackChannel(slackWebApiClient, 'mock-channel-id');
+			resolvedValue = await getAllMessagesInASlackChannel(
+				slackWebApiClient,
+				'mock-channel-id'
+			);
 		});
 
 		it('makes calls to the Slack conversations.history API endpoint until there are no more messages', () => {
-			td.verify(slackWebApiClient.conversations.history(td.matchers.isA(Object)), {times: 3});
-			td.verify(slackWebApiClient.conversations.history({
-				channel: 'mock-channel-id',
-				count: 100
-			}), {times: 1});
-			td.verify(slackWebApiClient.conversations.history({
-				channel: 'mock-channel-id',
-				count: 100,
-				latest: 'mock-timestamp-2'
-			}), {times: 1});
-			td.verify(slackWebApiClient.conversations.history({
-				channel: 'mock-channel-id',
-				count: 100,
-				latest: 'mock-timestamp-4'
-			}), {times: 1});
+			td.verify(slackWebApiClient.conversations.history(td.matchers.isA(Object)), {
+				times: 3
+			});
+			td.verify(
+				slackWebApiClient.conversations.history({
+					channel: 'mock-channel-id',
+					count: 100
+				}),
+				{ times: 1 }
+			);
+			td.verify(
+				slackWebApiClient.conversations.history({
+					channel: 'mock-channel-id',
+					count: 100,
+					latest: 'mock-timestamp-2'
+				}),
+				{ times: 1 }
+			);
+			td.verify(
+				slackWebApiClient.conversations.history({
+					channel: 'mock-channel-id',
+					count: 100,
+					latest: 'mock-timestamp-4'
+				}),
+				{ times: 1 }
+			);
 		});
 
 		it('resolves with an array containing all of the Slack messages in chronological order', () => {
@@ -127,9 +141,11 @@ describe('lib/get-all-messages-in-a-slack-channel', () => {
 
 			it('rejects with a descriptive `TypeError`', () => {
 				assert.ok(rejectedError instanceof TypeError);
-				assert.strictEqual(rejectedError.message, '`slackWebApiClient` must be an instance of Slack `WebClient`');
+				assert.strictEqual(
+					rejectedError.message,
+					'`slackWebApiClient` must be an instance of Slack `WebClient`'
+				);
 			});
-
 		});
 
 		describe('when `slackChannelId` is not a string', () => {
@@ -145,9 +161,11 @@ describe('lib/get-all-messages-in-a-slack-channel', () => {
 
 			it('rejects with a descriptive `TypeError`', () => {
 				assert.ok(rejectedError instanceof TypeError);
-				assert.strictEqual(rejectedError.message, '`slackChannelId` must be slack channel ID as a string');
+				assert.strictEqual(
+					rejectedError.message,
+					'`slackChannelId` must be slack channel ID as a string'
+				);
 			});
-
 		});
 
 		describe('when `slackChannelId` is an empty string', () => {
@@ -163,17 +181,20 @@ describe('lib/get-all-messages-in-a-slack-channel', () => {
 
 			it('rejects with a descriptive `TypeError`', () => {
 				assert.ok(rejectedError instanceof TypeError);
-				assert.strictEqual(rejectedError.message, '`slackChannelId` must be slack channel ID as a string');
+				assert.strictEqual(
+					rejectedError.message,
+					'`slackChannelId` must be slack channel ID as a string'
+				);
 			});
-
 		});
-
 	});
 
 	describe('.default', () => {
 		it('aliases the module exports', () => {
-			assert.strictEqual(getAllMessagesInASlackChannel, getAllMessagesInASlackChannel.default);
+			assert.strictEqual(
+				getAllMessagesInASlackChannel,
+				getAllMessagesInASlackChannel.default
+			);
 		});
 	});
-
 });
