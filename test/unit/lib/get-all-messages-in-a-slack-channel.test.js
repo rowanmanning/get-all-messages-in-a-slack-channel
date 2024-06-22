@@ -1,7 +1,10 @@
 'use strict';
 
+const { afterEach, beforeEach, describe, it } = require('node:test');
 const assert = require('node:assert');
 const td = require('testdouble');
+
+td.config({ ignoreWarnings: true });
 
 describe('lib/get-all-messages-in-a-slack-channel', () => {
 	let getAllMessagesInASlackChannel;
@@ -16,6 +19,8 @@ describe('lib/get-all-messages-in-a-slack-channel', () => {
 		webApi = td.replace('@slack/web-api', { WebClient });
 		getAllMessagesInASlackChannel = require('../../../lib/get-all-messages-in-a-slack-channel');
 	});
+
+	afterEach(() => td.reset());
 
 	it('exports a function', () => {
 		assert.strictEqual(typeof getAllMessagesInASlackChannel, 'function');
