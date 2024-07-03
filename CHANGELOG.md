@@ -1,5 +1,13 @@
 # Changelog
 
+## [5.2.1](https://github.com/rowanmanning/get-all-messages-in-a-slack-channel/compare/v5.2.0...v5.2.1) (2024-07-03)
+
+
+### Bug Fixes
+
+* bump axios and @slack/web-api ([2173123](https://github.com/rowanmanning/get-all-messages-in-a-slack-channel/commit/2173123ccc26d7ebd3be73ac3ff97d08140b3596))
+* bump follow-redirects from 1.15.4 to 1.15.6 ([17fb86f](https://github.com/rowanmanning/get-all-messages-in-a-slack-channel/commit/17fb86ff93943cf265df8b3e85ad8a76015829ca))
+
 ## [5.2.0](https://github.com/rowanmanning/get-all-messages-in-a-slack-channel/compare/v5.1.0...v5.2.0) (2024-06-23)
 
 
