@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.2.2](https://github.com/rowanmanning/get-all-messages-in-a-slack-channel/compare/v5.2.1...v5.2.2) (2024-07-27)
+
+
+### Bug Fixes
+
+* prevent husky from failing ([2142b81](https://github.com/rowanmanning/get-all-messages-in-a-slack-channel/commit/2142b81f65341307f7db7dc138f4b47b0c5bbb2c))
+
 ## [5.2.1](https://github.com/rowanmanning/get-all-messages-in-a-slack-channel/compare/v5.2.0...v5.2.1) (2024-07-03)
 
 
