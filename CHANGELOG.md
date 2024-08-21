@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.2.3](https://github.com/rowanmanning/get-all-messages-in-a-slack-channel/compare/v5.2.2...v5.2.3) (2024-08-21)
+
+
+### Bug Fixes
+
+* bump axios from 1.7.2 to 1.7.4 ([af96aab](https://github.com/rowanmanning/get-all-messages-in-a-slack-channel/commit/af96aab1dc10c07a5c352818c8c8f990a5414cd8))
+
 ## [5.2.2](https://github.com/rowanmanning/get-all-messages-in-a-slack-channel/compare/v5.2.1...v5.2.2) (2024-07-27)
 
 
