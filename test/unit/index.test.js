@@ -6,7 +6,7 @@ const td = require('testdouble');
 
 td.config({ ignoreWarnings: true });
 
-describe('lib/get-all-messages-in-a-slack-channel', () => {
+describe('@rowanmanning/get-all-messages-in-a-slack-channel', () => {
 	let getAllMessagesInASlackChannel;
 	let webApi;
 	let WebClient;
@@ -17,7 +17,7 @@ describe('lib/get-all-messages-in-a-slack-channel', () => {
 			history: td.func()
 		};
 		webApi = td.replace('@slack/web-api', { WebClient });
-		getAllMessagesInASlackChannel = require('../../../lib/get-all-messages-in-a-slack-channel');
+		getAllMessagesInASlackChannel = require('../..');
 	});
 
 	afterEach(() => td.reset());

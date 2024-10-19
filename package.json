@@ -39,7 +39,7 @@
     "testdouble": "^3.16.4",
     "typescript": "^5.5.2"
   },
-  "main": "lib/get-all-messages-in-a-slack-channel.js",
+  "main": "index.js",
   "nyc": {
     "eager": true,
     "reporter": [
