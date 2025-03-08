@@ -4,27 +4,10 @@ const { WebClient } = require('@slack/web-api');
 
 /**
  * @import { ConversationsHistoryArguments, ConversationsHistoryResponse } from '@slack/web-api'
+ * @import { getAllMessagesInASlackChannel, Messages } from '.'
  */
 
-/**
- * @typedef {NonNullable<ConversationsHistoryResponse['messages']>} Messages
- */
-
-/**
- * Get all of the messages in a Slack channel.
- *
- * @public
- * @param {WebClient} slackWebApiClient
- *     A pre-authenticated Slack Web API client {@see https://www.npmjs.com/package/@slack/web-api}.
- * @param {string} slackChannelId
- *     The ID of the Slack channel to get all messages for.
- * @returns {Promise<Messages>}
- *     Returns a promise that resolves to an array of Slack messages.
- * @throws {TypeError}
- *     Throws if any of the parameters are invalid.
- * @throws {Error}
- *     Throws if the Slack API errors.
- */
+/** @type {getAllMessagesInASlackChannel} */
 exports.getAllMessagesInASlackChannel = function getAllMessagesInASlackChannel(
 	slackWebApiClient,
 	slackChannelId
@@ -39,19 +22,10 @@ exports.getAllMessagesInASlackChannel = function getAllMessagesInASlackChannel(
 };
 
 /**
- * Recurse over a Slack channel's history.
- *
- * @private
  * @param {WebClient} slackWebApiClient
- *     A pre-authenticated Slack Web API client {@see https://www.npmjs.com/package/@slack/web-api}.
  * @param {string} slackChannelId
- *     The ID of the Slack channel to get all messages for.
  * @param {{result: Messages, lastMessageTimestamp?: string}} [state]
- *     A private state object used in recursion.
  * @returns {Promise<Messages>}
- *     Returns a promise that resolves to an array of Slack messages.
- * @throws {Error}
- *     Throws if the Slack API errors.
  */
 async function recurseOverChannelHistory(
 	slackWebApiClient,
