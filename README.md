@@ -3,13 +3,11 @@
 
 Get all messages in a public Slack channel.
 
-
-## Table of Contents
-
-  * [Requirements](#requirements)
-  * [Usage](#usage)
-  * [Contributing](#contributing)
-  * [License](#license)
+* [Requirements](#requirements)
+* [Usage](#usage)
+* [Migration](#migration)
+* [Contributing](#contributing)
+* [License](#license)
 
 
 ## Requirements
@@ -42,6 +40,11 @@ const messages = await getAllMessagesInASlackChannel(slackWebClient, 'YOUR-CHANN
 ```
 
 See the [Slack `channels.history` response documentation](https://api.slack.com/methods/channels.history#response) for info on what the messages look like.
+
+
+## Migration
+
+A new major version of this project is released if breaking changes are introduced. We maintain a [migration guide](docs/migration.md) to help users migrate between these versions.
 
 
 ## Contributing
