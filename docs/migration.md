@@ -5,6 +5,7 @@ This document outlines how to migrate to new major breaking versions of this lib
 
 * [Migrating from v5 to v6](#migrating-from-v5-to-v6)
   * [Dropped Node.js v18 support](#dropped-nodejs-v18-support)
+  * [Switch to named exports](#switch-to-named-exports)
 * [Migrating from v4 to v5](#migrating-from-v4-to-v5)
   * [Dropped Node.js v16 support](#dropped-nodejs-v16-support)
 * [Migrating from v3 to v4](#migrating-from-v3-to-v4)
@@ -19,6 +20,22 @@ This document outlines how to migrate to new major breaking versions of this lib
 ### Dropped Node.js v18 support
 
 The library now only supports Node.js v20 and above.
+
+### Switch to named exports
+
+We've moved away from using a default export for the `getAllMessagesInASlackChannel` function. It's now a named export. You'll need to update your imports:
+
+```diff
+- const getAllMessagesInASlackChannel = require('@rowanmanning/get-all-messages-in-a-slack-channel');
++ const { getAllMessagesInASlackChannel } = require('@rowanmanning/get-all-messages-in-a-slack-channel');
+```
+
+or
+
+```diff
+- import getAllMessagesInASlackChannel from '@rowanmanning/get-all-messages-in-a-slack-channel';
++ import { getAllMessagesInASlackChannel } from '@rowanmanning/get-all-messages-in-a-slack-channel';
+```
 
 ## Migrating from v4 to v5
 

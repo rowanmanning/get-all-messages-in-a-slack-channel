@@ -17,7 +17,7 @@ describe('@rowanmanning/get-all-messages-in-a-slack-channel', () => {
 			history: td.func()
 		};
 		webApi = td.replace('@slack/web-api', { WebClient });
-		getAllMessagesInASlackChannel = require('../..');
+		getAllMessagesInASlackChannel = require('../..').getAllMessagesInASlackChannel;
 	});
 
 	afterEach(() => td.reset());
@@ -191,15 +191,6 @@ describe('@rowanmanning/get-all-messages-in-a-slack-channel', () => {
 					'`slackChannelId` must be slack channel ID as a string'
 				);
 			});
-		});
-	});
-
-	describe('.default', () => {
-		it('aliases the module exports', () => {
-			assert.strictEqual(
-				getAllMessagesInASlackChannel,
-				getAllMessagesInASlackChannel.default
-			);
 		});
 	});
 });

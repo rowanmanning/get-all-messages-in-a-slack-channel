@@ -25,7 +25,10 @@ const { WebClient } = require('@slack/web-api');
  * @throws {Error}
  *     Throws if the Slack API errors.
  */
-function getAllMessagesInASlackChannel(slackWebApiClient, slackChannelId) {
+exports.getAllMessagesInASlackChannel = function getAllMessagesInASlackChannel(
+	slackWebApiClient,
+	slackChannelId
+) {
 	if (!(slackWebApiClient instanceof WebClient)) {
 		throw new TypeError('`slackWebApiClient` must be an instance of Slack `WebClient`');
 	}
@@ -33,7 +36,7 @@ function getAllMessagesInASlackChannel(slackWebApiClient, slackChannelId) {
 		throw new TypeError('`slackChannelId` must be slack channel ID as a string');
 	}
 	return recurseOverChannelHistory(slackWebApiClient, slackChannelId);
-}
+};
 
 /**
  * Recurse over a Slack channel's history.
@@ -73,7 +76,3 @@ async function recurseOverChannelHistory(
 	}
 	return state.result.reverse();
 }
-
-/** @type {typeof getAllMessagesInASlackChannel} */
-module.exports = getAllMessagesInASlackChannel;
-module.exports.default = module.exports;
