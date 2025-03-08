@@ -1,5 +1,27 @@
 # Changelog
 
+## [6.0.0](https://github.com/rowanmanning/get-all-messages-in-a-slack-channel/compare/v5.2.3...v6.0.0) (2025-03-08)
+
+
+### ⚠ BREAKING CHANGES
+
+* switch to named exports
+* drop Node.js 18
+
+### Bug Fixes
+
+* bump axios from 1.7.4 to 1.8.2 ([3ca5b82](https://github.com/rowanmanning/get-all-messages-in-a-slack-channel/commit/3ca5b823d40e695042d0fd3569dd9f3bd41f6554))
+
+
+### Miscellaneous Chores
+
+* drop Node.js 18 ([6b7cedf](https://github.com/rowanmanning/get-all-messages-in-a-slack-channel/commit/6b7cedffd6210b7fc46e457a14b53d06384d60fa))
+
+
+### Code Refactoring
+
+* switch to named exports ([c864eb0](https://github.com/rowanmanning/get-all-messages-in-a-slack-channel/commit/c864eb06cd566c20775d7a09132a3b4c918602bb))
+
 ## [5.2.3](https://github.com/rowanmanning/get-all-messages-in-a-slack-channel/compare/v5.2.2...v5.2.3) (2024-08-21)
 
 
