@@ -1,6 +1,6 @@
 {
   "name": "@rowanmanning/get-all-messages-in-a-slack-channel",
-  "version": "6.0.0",
+  "version": "6.1.0",
   "description": "Get all messages in a public Slack channel",
   "keywords": [
     "slack"
