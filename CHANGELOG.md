@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.1.0](https://github.com/rowanmanning/get-all-messages-in-a-slack-channel/compare/v6.0.0...v6.1.0) (2025-05-21)
+
+
+### Features
+
+* add Node.js 24 support ([67b26c4](https://github.com/rowanmanning/get-all-messages-in-a-slack-channel/commit/67b26c432d04141d75d85a7a7e50ae073704d76d))
+
 ## [6.0.0](https://github.com/rowanmanning/get-all-messages-in-a-slack-channel/compare/v5.2.3...v6.0.0) (2025-03-08)
 
 
