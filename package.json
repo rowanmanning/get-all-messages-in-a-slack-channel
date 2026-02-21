@@ -20,9 +20,8 @@
     "verify": "npm run verify:biome && npm run verify:types",
     "verify:biome": "biome check",
     "verify:types": "tsc --project ./jsconfig.json",
-    "test": "npm run test:coverage",
-    "test:unit": "cd test/unit && node --test",
-    "test:coverage": "nyc npm run test:unit",
+    "test": "npm run test:unit",
+    "test:unit": "node --test --experimental-test-module-mocks --experimental-test-coverage --test-coverage-exclude test/unit/**/*.test.js --test-coverage-branches=100 --test-coverage-functions=100 --test-coverage-lines=100 test/unit/**/*.test.js",
     "prepare": "husky || true"
   },
   "peerDependencies": {
@@ -33,8 +32,6 @@
     "@commitlint/config-conventional": "^20.4.2",
     "@rowanmanning/biome-config": "^3.0.1",
     "husky": "^9.0.7",
-    "nyc": "^17.0.0",
-    "testdouble": "^3.16.4",
     "typescript": "^5.5.2"
   },
   "exports": {
@@ -42,12 +39,5 @@
       "types": "./index.d.ts",
       "default": "./index.js"
     }
-  },
-  "nyc": {
-    "eager": true,
-    "reporter": [
-      "html",
-      "text"
-    ]
   }
 }
