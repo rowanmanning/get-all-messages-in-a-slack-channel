@@ -29,8 +29,8 @@
     "@slack/web-api": "^6.7.0"
   },
   "devDependencies": {
-    "@commitlint/cli": "^20.4.2",
-    "@commitlint/config-conventional": "^20.4.2",
+    "@commitlint/cli": "^20.4.3",
+    "@commitlint/config-conventional": "^20.4.3",
     "@rowanmanning/biome-config": "^3.0.1",
     "husky": "^9.0.7",
     "nyc": "^17.0.0",
