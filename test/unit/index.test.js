@@ -1,26 +1,24 @@
 'use strict';
 
-const { afterEach, beforeEach, describe, it } = require('node:test');
+const { afterEach, beforeEach, describe, it, mock } = require('node:test');
 const assert = require('node:assert');
-const td = require('testdouble');
 
-td.config({ ignoreWarnings: true });
+const conversations = { history: mock.fn() };
+const WebClient = mock.fn(
+	class WebClient {
+		conversations = conversations;
+	}
+);
+mock.module('@slack/web-api', { namedExports: { WebClient } });
 
 describe('@rowanmanning/get-all-messages-in-a-slack-channel', () => {
 	let getAllMessagesInASlackChannel;
-	let webApi;
-	let WebClient;
 
 	beforeEach(() => {
-		WebClient = td.constructor();
-		WebClient.prototype.conversations = {
-			history: td.func()
-		};
-		webApi = td.replace('@slack/web-api', { WebClient });
 		getAllMessagesInASlackChannel = require('../..').getAllMessagesInASlackChannel;
 	});
 
-	afterEach(() => td.reset());
+	afterEach(() => mock.reset());
 
 	it('exports a function', () => {
 		assert.strictEqual(typeof getAllMessagesInASlackChannel, 'function');
@@ -31,8 +29,9 @@ describe('@rowanmanning/get-all-messages-in-a-slack-channel', () => {
 		let slackWebApiClient;
 
 		beforeEach(async () => {
-			td.when(WebClient.prototype.conversations.history(td.matchers.isA(Object))).thenResolve(
-				{
+			conversations.history.mock.resetCalls();
+			conversations.history.mock.mockImplementationOnce(
+				async () => ({
 					messages: [
 						{
 							ts: 'mock-timestamp-1',
@@ -44,8 +43,11 @@ describe('@rowanmanning/get-all-messages-in-a-slack-channel', () => {
 						}
 					],
 					has_more: true
-				},
-				{
+				}),
+				0
+			);
+			conversations.history.mock.mockImplementationOnce(
+				async () => ({
 					messages: [
 						{
 							ts: 'mock-timestamp-3',
@@ -57,8 +59,11 @@ describe('@rowanmanning/get-all-messages-in-a-slack-channel', () => {
 						}
 					],
 					has_more: true
-				},
-				{
+				}),
+				1
+			);
+			conversations.history.mock.mockImplementationOnce(
+				async () => ({
 					messages: [
 						{
 							ts: 'mock-timestamp-5',
@@ -66,11 +71,14 @@ describe('@rowanmanning/get-all-messages-in-a-slack-channel', () => {
 						}
 					],
 					has_more: false
-				}
+				}),
+				2
 			);
+			conversations.history.mock.mockImplementationOnce(async () => {
+				throw new Error('Too many calls, no more messages');
+			}, 3);
 
-			// WebClient.prototype.conversations.history.onCall(3).rejects(new Error('Too many calls, no more messages'));
-			slackWebApiClient = new webApi.WebClient();
+			slackWebApiClient = new WebClient();
 			resolvedValue = await getAllMessagesInASlackChannel(
 				slackWebApiClient,
 				'mock-channel-id'
@@ -78,32 +86,27 @@ describe('@rowanmanning/get-all-messages-in-a-slack-channel', () => {
 		});
 
 		it('makes calls to the Slack conversations.history API endpoint until there are no more messages', () => {
-			td.verify(slackWebApiClient.conversations.history(td.matchers.isA(Object)), {
-				times: 3
-			});
-			td.verify(
-				slackWebApiClient.conversations.history({
+			assert.strictEqual(conversations.history.mock.callCount(), 3);
+			assert.deepStrictEqual(conversations.history.mock.calls[0].arguments, [
+				{
 					channel: 'mock-channel-id',
 					count: 100
-				}),
-				{ times: 1 }
-			);
-			td.verify(
-				slackWebApiClient.conversations.history({
+				}
+			]);
+			assert.deepStrictEqual(conversations.history.mock.calls[1].arguments, [
+				{
 					channel: 'mock-channel-id',
 					count: 100,
 					latest: 'mock-timestamp-2'
-				}),
-				{ times: 1 }
-			);
-			td.verify(
-				slackWebApiClient.conversations.history({
+				}
+			]);
+			assert.deepStrictEqual(conversations.history.mock.calls[2].arguments, [
+				{
 					channel: 'mock-channel-id',
 					count: 100,
 					latest: 'mock-timestamp-4'
-				}),
-				{ times: 1 }
-			);
+				}
+			]);
 		});
 
 		it('resolves with an array containing all of the Slack messages in chronological order', () => {
